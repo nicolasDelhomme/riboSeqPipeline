@@ -1,2 +1,4 @@
 # riboSeqPipeline
 RiboSeq pipeline
+
+# installation
