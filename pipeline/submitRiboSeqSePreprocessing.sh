@@ -19,7 +19,17 @@ account=u2018017
 email=amir.mahboubi@umu.se
 in=/mnt/picea/projects/arabidopsis/jhanson/riboseq-pipeline/riboseq/data/iSeq-3rd-run
 out=/mnt/picea/projects/arabidopsis/jhanson/riboseq-pipeline/riboseq/results20190911
-sortMeRnaDb=/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/rfam-5s-database-id98.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/rfam-5s-database-id98:/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/rfam-5.8s-database-id98.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/rfam-5.8s-database-id98:/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-arc-16s-id95.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/silva-arc-16s-database-id95:/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-bac-16s-id90.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/silva-bac-16s-database-id90:/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-euk-18s-id95.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/silva-euk-18s-database-id95:/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-arc-23s-id98.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/silva-arc-23s-database-id98:/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-bac-23s-id98.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/silva-bac-23s-database-id98:/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-euk-28s-id98.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/silva-euk-28s-database-id98:/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/Arabidopsis_rRNA.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/Arabidopsis_rRNA
+sortMeRnaDb=\
+/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/rfam-5s-database-id98.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/rfam-5s-database-id98:\
+/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/rfam-5.8s-database-id98.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/rfam-5.8s-database-id98:\
+/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-arc-16s-id95.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/silva-arc-16s-database-id95:\
+/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-bac-16s-id90.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/silva-bac-16s-database-id90:\
+/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-euk-18s-id95.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/silva-euk-18s-database-id95:\
+/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-arc-23s-id98.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/silva-arc-23s-database-id98:\
+/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-bac-23s-id98.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/silva-bac-23s-database-id98:\
+/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-euk-28s-id98.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/silva-euk-28s-database-id98:\
+/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/Arabidopsis_rRNA.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/Arabidopsis_rRNA\
+/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA-id90.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/tRNA-id90
 
 
 # sanity check

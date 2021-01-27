@@ -1,15 +1,17 @@
-#Install
-install.packages("devtools")
-#Loading
-library(devtools)
-#Installing RiboWaltz
-install_github("LabTranslationalArchitectomics/riboWaltz", dependencies = TRUE)
-#Please note: to install riboWaltz generating the vignette replace the last command with:
-install_github("LabTranslationalArchitectomics/riboWaltz", dependencies = TRUE, build_vignettes = TRUE)
-#To load riboWaltz run
-library(riboWaltz)
 
-library(GenomicFeatures)
+#' # Installation
+#' Dependencies: devtools RiboWaltz
+#' ```{r install,eval=FALSE}
+#' install.packages("devtools")
+#' devtools::install_github("LabTranslationalArchitectomics/riboWaltz", dependencies = TRUE, build_vignettes = TRUE)
+#' ```
+
+#' # Setup
+suppressPackageStartupMessages({
+  library(riboWaltz)
+  library(GenomicFeatures)
+})
+
 
 #GTF file
 #gtf_file <- "/mnt/picea/storage/reference/Arabidopsis-thaliana/TAIR10/gff/TAIR10_GFF3_genes_transposons.gtf"
