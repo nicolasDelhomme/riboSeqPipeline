@@ -2,6 +2,10 @@
 RiboSeq pipeline
 
 ## Installation
+```{bash}
+ln -s /mnt/picea/projects/aspseq/jhanson/riboseq-pipeline data
+ln -s /mnt/picea/storage/reference .
+```
 
 ## Setup
 ### SortMeRNA

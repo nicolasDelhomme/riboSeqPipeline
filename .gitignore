@@ -42,3 +42,8 @@ vignettes/*.pdf
 # ignore directories
 data
 data/
+reference
+reference/
+riboseq
+riboseq/
+
