@@ -53,7 +53,7 @@ reads_list <- bamtolist(bamfolder = here("data/Bernard_Results_010720PtrRNAdatab
 filtered_list <- length_filter(data = reads_list, length_filter_mode = "custom",
                                length_filter_vector = 26:34)
 
-#' ```{r period, eval=FALSE, echo=FALSE}`
+#' ```{r period, eval=FALSE, echo=FALSE}
 #' #' * Periodicity threshold mode
 #' filtered_list <- length_filter(data = reads_list, length_filter_mode = "periodicity",
 #'                              periodicity_threshold = 60)
