@@ -31,15 +31,9 @@ fi
 # load necessary tools
 module load bioinfo-tools FastQC SortMeRNA trimmomatic bowtie2 samtools Salmon kallisto
 
-# Loop over the samples in the directory $in
+# Find all files and submit
 for f in $(find $in -name "*.fastq.gz"); do
     bash ../UPSCb-common/pipeline/runRiboSeqSePreprocessing.dev.sh -s $start -e $end \
     -r $sortMeRnaDb -b $bowtieIndex -L $salmonIndex $account $email $f $out
 done
 
-## Loop over the samples in the directory $in
-#for f in $(find $in -name "*.fastq.gz"); do
-#    bash ../UPSCb-common/pipeline/runRiboSeqSePreprocessing.sh -s $start -e $end \
-#    -b $bowtieIndex -f $kallistoFasta -k $kallistoIndex -M $kallistoFragMean \
-#    -S $kallistoFragSd -r $sortMeRnaDb $account $email $f $out
-#done
