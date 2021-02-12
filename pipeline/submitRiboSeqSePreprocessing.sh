@@ -31,11 +31,14 @@ sortMeRnaDb=\
 /mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/Arabidopsis_rRNA.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/Arabidopsis_rRNA\
 /mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA-id90.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/tRNA-id90
 
+tmp=/mnt/picea/tmp/$USER
 
 # sanity check
 if [ -d $out ]; then
     mkdir -p $out
 fi
+
+[[ ! -d $tmp ]] && mkdir -p $tmp
 
 # load necessary tools
 module load bioinfo-tools FastQC sortmerna Trimmomatic bowtie2 samtools kallisto
@@ -44,5 +47,5 @@ module load bioinfo-tools FastQC sortmerna Trimmomatic bowtie2 samtools kallisto
 for f in $(find $in -name "*.fastq.gz"); do
     bash ../UPSCb-common/pipeline/runRiboSeqSePreprocessing.sh -s $start -e $end \
     -b $bowtieIndex -f $kallistoFasta -k $kallistoIndex -M $kallistoFragMean \
-    -S $kallistoFragSd -r $sortMeRnaDb $account $email $f $out
+    -S $kallistoFragSd -r $sortMeRnaDb -p $tmp $account $email $f $out
 done
