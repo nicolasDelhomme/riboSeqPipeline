@@ -20,9 +20,8 @@ email=teitur.kalman@umu.se
 in=$(realpath ../data/raw)
 #out=$(realpath ../data/processed)
 out=/mnt/picea/home/tkalman/riboSeq_Hanson-group_project-directory/processed
-sortMeRnaDb=$(realpath ../data/rRNA_DB)
-
-
+#sortMeRnaDb=$(realpath ../data/rRNA_DB)
+sortMeRnaDb=/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/rRNA_databases/Picea-Pinus_rRNA.fasta,/mnt/picea/storage/reference/rRNA/sortmerna/v2.1/automata/Picea-Pinus_rRNA
 # sanity check
 if [ -d $out ]; then
     mkdir -p $out
