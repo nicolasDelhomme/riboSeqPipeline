@@ -25,7 +25,7 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-bac-23s-id98.fasta,$referenc
 $reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-euk-28s-id98.fasta,$reference/rRNA/sortmerna/v2.1/automata/silva-euk-28s-database-id98
 
 # RUN options, change to match your need
-start=1
+start=7
 end=7
 kallistoFragMean=175
 kallistoFragSd=25
@@ -34,7 +34,7 @@ email=amir.mahboubi@umu.se
 in=$data/AZD_exp_iSeq100/T-3
 pattern=T3-2_S2_L001_R1_001.fastq.gz
 #pattern=*.fastq.gz
-out=$data/Results/results20210218/tRNA-90
+out=$data/Results/results20210218/tRNA
 
 # functions
 source ${SLURM_SUBMIT_DIR:-$(pwd)}/../UPSCb-common/src/bash/functions.sh
@@ -60,13 +60,16 @@ case "$sp" in
   athaliana)
 
     sortMeRnaDb=${sortMeRnaDb}:\
-$reference/rRNA/sortmerna/v2.1/rRNA_databases/Arabidopsis_rRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/Arabidopsis_rRNA\
-$reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA-id90
+$reference/rRNA/sortmerna/v2.1/rRNA_databases/Arabidopsis_rRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/Arabidopsis_rRNA:\
+$reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA
+#$reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA-L10
+#$reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA-id90
 
     bowtieIndex=$reference/Arabidopsis-thaliana/TAIR10/indices/bowtie2/TAIR10
 
     kallistoFasta=$reference/Arabidopsis-thaliana/ARAPORT11/fasta/Araport11_all.201606.cdna.fasta
-    kallistoIndex=$reference/Arabidopsis-thaliana/ARAPORT11/indices/kallisto/Araport11_all.201606.cdna.inx
+    #kallistoIndex=$reference/Arabidopsis-thaliana/ARAPORT11/indices/kallisto/Araport11_all.201606.cdna.inx
+    kallistoIndex=$reference/Arabidopsis-thaliana/ARAPORT11/indices/kallisto/Araport11_genes.201606.cdna_kmer15.inx
 
   ;;
   pabies)
