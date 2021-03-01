@@ -132,9 +132,3 @@ for f in $(find $in -name "$pattern"); do
     -S $kallistoFragSd -L $salmonIndex -r $sortMeRnaDb -p $tmp $account $email $f $out
 done
 
-## Loop over the samples in the directory $in
-#for f in $(find $in -name "*.fastq.gz"); do
-#    bash ../UPSCb-common/pipeline/runRiboSeqSePreprocessing.sh -s $start -e $end \
-#    -b $bowtieIndex -f $kallistoFasta -k $kallistoIndex -M $kallistoFragMean \
-#    -S $kallistoFragSd -r $sortMeRnaDb -p $tmp $account $email $f $out
-#done
