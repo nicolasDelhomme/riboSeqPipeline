@@ -81,6 +81,8 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/Picea-Pinus_rRNA.fasta,$reference/
     kallistoFasta=$reference/Picea-abies/v1.0/fasta/GenePrediction/phased/Pabies1.0-all.phase.gff3.CDS.fa
     kallistoIndex=$reference/Picea-abies/v1.0/indices/kallisto/Pabies1.0-all.phase.gff3.CDS.fa.inx
 
+    salmonIndex=/mnt/picea/storage/reference/Picea-abies/v1.0/indices/salmon/Pabies1.0-all-phase.gff3.CDSandLTR-TE_gentrome_salmon-version-1dot1dot0
+
   ;;
   ptremula)
     bowtieIndex=$reference/Populus-tremula/v2.2/indices/bowtie2/index
@@ -104,5 +106,5 @@ fi
 for f in $(find $in -name "$pattern"); do
     bash $(realpath ../UPSCb-common/pipeline/runRiboSeqSePreprocessing.sh) -s $start -e $end \
     -b $bowtieIndex -f $kallistoFasta -k $kallistoIndex -M $kallistoFragMean \
-    -S $kallistoFragSd -r $sortMeRnaDb -p $tmp $account $email $f $out
+    -S $kallistoFragSd -L $salmonIndex -r $sortMeRnaDb -p $tmp $account $email $f $out
 done
