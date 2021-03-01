@@ -46,7 +46,7 @@ Annot <- create_annotation(gtfpath = here("reference/Populus-tremula/v2.2/gtf/Po
 
 #' ## Data
 #' * Import and read BAM files
-reads_list <- bamtolist(bamfolder = here("data/Bernard_Results_Samples1-6Okt20/kallisto/Sample1_S1_L001_R1_001_sortmerna_trimmomatic"), 
+reads_list <- bamtolist(bamfolder = here("data/Bernard_Results_010720PtrRNAdatabaseaddedv2/kallisto/5ndplLdw2s2_S1_L001_R1_001_sortmerna_trimmomatic"), 
                         annotation = Annot)
 
 #' * Selection of read lengths
@@ -61,7 +61,7 @@ filtered_list <- length_filter(data = reads_list, length_filter_mode = "custom",
 
 #' * P_Site Offset
 psite_offset <- psite(filtered_list, flanking = 6, start = TRUE, extremity = "auto",
-                      plot = TRUE, plot_dir = here("data/Bernard_Results_Samples1-6Okt20/P_Site_images/"), 
+                      plot = TRUE, plot_dir = here("data/Bernard_Results_010720PtrRNAdatabaseaddedv2/P_Site_images/"), 
                       plot_format = "png", cl = 99)
 reads_psite_list <- psite_info(filtered_list, psite_offset)
 
