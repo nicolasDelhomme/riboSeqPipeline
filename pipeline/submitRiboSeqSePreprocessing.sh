@@ -25,16 +25,15 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-bac-23s-id98.fasta,$referenc
 $reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-euk-28s-id98.fasta,$reference/rRNA/sortmerna/v2.1/automata/silva-euk-28s-database-id98
 
 # RUN options, change to match your need
-start=7
-end=7
+start=1
+end=8
 kallistoFragMean=175
 kallistoFragSd=25
-account=u2018017
-email=amir.mahboubi@umu.se
-in=$data/AZD_exp_iSeq100/T-3
-pattern=T3-2_S2_L001_R1_001.fastq.gz
-#pattern=*.fastq.gz
-out=$data/Results/results20210218/tRNA
+account=u2021006
+email=
+in=$(realpath $data/raw)
+pattern=*.fastq.gz
+out=
 
 # functions
 source ${SLURM_SUBMIT_DIR:-$(pwd)}/../UPSCb-common/src/bash/functions.sh
@@ -62,8 +61,8 @@ case "$sp" in
     sortMeRnaDb=${sortMeRnaDb}:\
 $reference/rRNA/sortmerna/v2.1/rRNA_databases/Arabidopsis_rRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/Arabidopsis_rRNA:\
 $reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA
-#$reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA-L10
-#$reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA-id90
+    #$reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA-L10
+    #$reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA-id90
 
     bowtieIndex=$reference/Arabidopsis-thaliana/TAIR10/indices/bowtie2/TAIR10
 
@@ -78,10 +77,10 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/Picea-Pinus_rRNA.fasta,$reference/
 
     bowtieIndex=$reference/Picea-abies/v1.0/indices/bowtie2/Pabies01-genome
 
-    kallistoFasta=$reference/Picea-abies/v1.0/fasta/GenePrediction/phased/Pabies1.0-all.phase.gff3.CDS.fa
-    kallistoIndex=$reference/Picea-abies/v1.0/indices/kallisto/Pabies1.0-all.phase.gff3.CDS.fa.inx
+    kallistoFasta=$reference/Picea-abies/v1.0/fasta/GenePrediction/phased/Pabies1.0-all-phase.gff3.CDSandLTR-TE.fa
+    kallistoIndex=$reference/Picea-abies/v1.0/indices/kallisto/kallistoIndex_15-mer/Pabies1.0-all-phase.gff3.CDSandLTR-TE.inx
 
-    salmonIndex=/mnt/picea/storage/reference/Picea-abies/v1.0/indices/salmon/Pabies1.0-all-phase.gff3.CDSandLTR-TE_gentrome_salmon-version-1dot1dot0
+    salmonIndex=$reference/Picea-abies/v1.0/indices/salmon/Pabies1.0-all-phase.gff3.CDSandLTR-TE.15-mer
 
   ;;
   ptremula)
