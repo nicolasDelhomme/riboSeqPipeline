@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RUN_SET xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ftp://webin.ebi.ac.uk/meta/xsd/sra_1_5/SRA.run.xsd">
+ <RUN alias="UPSC-0172-R0001" center_name="UPSC" run_center="SciLifeLab" run_date="2020-06-03T10:00:00">
+  <EXPERIMENT_REF refname="UPSC-0172-E0001"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="UPSC-0172/P16952_1001_S1_L001_R1_001.fastq.gz" filetype="fastq" checksum_method="MD5" checksum="1bc2b49bf1bbe4bd30a1c5b8e1e07f49"/>
+   </FILES>
+  </DATA_BLOCK>
+ </RUN>
+ <RUN alias="UPSC-0172-R0002" center_name="UPSC" run_center="SciLifeLab" run_date="2020-06-03T10:00:00">
+  <EXPERIMENT_REF refname="UPSC-0172-E0002"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="UPSC-0172/P16952_1002_S2_L001_R1_001.fastq.gz" filetype="fastq" checksum_method="MD5" checksum="f53f13de4075663bfec6b3d709076484"/>
+   </FILES>
+  </DATA_BLOCK>
+ </RUN>
+ <RUN alias="UPSC-0172-R0003" center_name="UPSC" run_center="SciLifeLab" run_date="2020-06-03T10:00:00">
+  <EXPERIMENT_REF refname="UPSC-0172-E0003"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="UPSC-0172/P16952_1003_S3_L001_R1_001.fastq.gz" filetype="fastq" checksum_method="MD5" checksum="5a4ed8c9a700077128b5258e9ca5aff1"/>
+   </FILES>
+  </DATA_BLOCK>
+ </RUN>
+ <RUN alias="UPSC-0172-R0004" center_name="UPSC" run_center="SciLifeLab" run_date="2020-06-03T10:00:00">
+  <EXPERIMENT_REF refname="UPSC-0172-E0004"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="UPSC-0172/P16952_1004_S4_L001_R1_001.fastq.gz" filetype="fastq" checksum_method="MD5" checksum="65d204be67ec7572dd5f99a22746890c"/>
+   </FILES>
+  </DATA_BLOCK>
+ </RUN>
+ <RUN alias="UPSC-0172-R0005" center_name="UPSC" run_center="SciLifeLab" run_date="2020-06-03T10:00:00">
+  <EXPERIMENT_REF refname="UPSC-0172-E0005"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="UPSC-0172/P16952_1005_S5_L001_R1_001.fastq.gz" filetype="fastq" checksum_method="MD5" checksum="c2dc1609e5c59745760494eeed87f862"/>
+   </FILES>
+  </DATA_BLOCK>
+ </RUN>
+ <RUN alias="UPSC-0172-R0006" center_name="UPSC" run_center="SciLifeLab" run_date="2020-06-03T10:00:00">
+  <EXPERIMENT_REF refname="UPSC-0172-E0006"/>
+  <DATA_BLOCK>
+   <FILES>
+    <FILE filename="UPSC-0172/P16952_1006_S6_L001_R1_001.fastq.gz" filetype="fastq" checksum_method="MD5" checksum="7b48d59e943300ba33f5bffc847281e9"/>
+   </FILES>
+  </DATA_BLOCK>
+ </RUN>
+</RUN_SET>
