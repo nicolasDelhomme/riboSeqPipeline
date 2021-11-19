@@ -85,6 +85,9 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/plant_tRNA-id90.fasta,$reference/r
 
   ;;
   ptremula)
+    sortMeRnaDb=${sortMeRnaDb}:\
+$reference/rRNA/sortmerna/v2.1/rRNA_databases/plant_tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/plant_tRNA-id90
+
     bowtieIndex=$reference/Populus-tremula/v2.2/indices/bowtie2/index
 
     kallistoFasta=$reference/Populus-tremula/v2.2/fasta/Potra02_transcripts.fasta
