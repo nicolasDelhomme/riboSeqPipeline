@@ -30,10 +30,10 @@ end=8
 kallistoFragMean=175
 kallistoFragSd=25
 account=u2021006
-email=
+email=teitur.ahlgren.kalman@umu.se
 in=$(realpath $data/raw)
 pattern=*.fastq.gz
-out=
+out=/mnt/picea/home/tkalman/riboseq_add-tRNA
 
 # functions
 source ${SLURM_SUBMIT_DIR:-$(pwd)}/../UPSCb-common/src/bash/functions.sh
@@ -73,7 +73,8 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA.fasta,$reference/rRNA/sortmer
   ;;
   pabies)
     sortMeRnaDb=${sortMeRnaDb}:\
-$reference/rRNA/sortmerna/v2.1/rRNA_databases/Picea-Pinus_rRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/Picea-Pinus_rRNA
+$reference/rRNA/sortmerna/v2.1/rRNA_databases/Picea-Pinus_rRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/Picea-Pinus_rRNA:\
+$reference/rRNA/sortmerna/v2.1/rRNA_databases/plant_tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/plant_tRNA-id90
 
     bowtieIndex=$reference/Picea-abies/v1.0/indices/bowtie2/Pabies01-genome
 
@@ -84,6 +85,9 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/Picea-Pinus_rRNA.fasta,$reference/
 
   ;;
   ptremula)
+    sortMeRnaDb=${sortMeRnaDb}:\
+$reference/rRNA/sortmerna/v2.1/rRNA_databases/plant_tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/plant_tRNA-id90
+
     bowtieIndex=$reference/Populus-tremula/v2.2/indices/bowtie2/index
 
     kallistoFasta=$reference/Populus-tremula/v2.2/fasta/Potra02_transcripts.fasta
