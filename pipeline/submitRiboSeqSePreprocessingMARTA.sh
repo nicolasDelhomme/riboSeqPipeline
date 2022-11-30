@@ -24,16 +24,16 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-arc-23s-id98.fasta,$referenc
 $reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-bac-23s-id98.fasta,$reference/rRNA/sortmerna/v2.1/automata/silva-bac-23s-database-id98:\
 $reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-euk-28s-id98.fasta,$reference/rRNA/sortmerna/v2.1/automata/silva-euk-28s-database-id98
 
-# RUN options, change to match your need (in=$(realpath $data/raw))
+# RUN options, change to match your need
 start=1
 end=8
 kallistoFragMean=175
 kallistoFragSd=25
 account=u2021006
 email=marta.perez.alonso@slu.se
-in=/mnt/picea/home/mpalonso/RiboPabies/RIBO/SUM-WIN
+in=/mnt/picea/home/mpalonso/RiboPabies/Vikash
 pattern=*.fastq.gz
-out=/mnt/picea/home/mpalonso/Git/data/results/Marta/SUM-WIN
+out=/mnt/picea/home/mpalonso/Git/riboSeqPipeline/data/results/Vikash
 
 # functions
 source ${SLURM_SUBMIT_DIR:-$(pwd)}/../UPSCb-common/src/bash/functions.sh
@@ -73,8 +73,7 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA.fasta,$reference/rRNA/sortmer
   ;;
   pabies)
     sortMeRnaDb=${sortMeRnaDb}:\
-$reference/rRNA/sortmerna/v2.1/rRNA_databases/Picea-Pinus_rRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/Picea-Pinus_rRNA:\
-$reference/rRNA/sortmerna/v2.1/rRNA_databases/plant_tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/plant_tRNA-id90
+$reference/rRNA/sortmerna/v2.1/rRNA_databases/Picea-Pinus_rRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/Picea-Pinus_rRNA
 
     bowtieIndex=$reference/Picea-abies/v1.0/indices/bowtie2/Pabies01-genome
 
@@ -85,9 +84,6 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/plant_tRNA-id90.fasta,$reference/r
 
   ;;
   ptremula)
-    sortMeRnaDb=${sortMeRnaDb}:\
-$reference/rRNA/sortmerna/v2.1/rRNA_databases/plant_tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/plant_tRNA-id90
-
     bowtieIndex=$reference/Populus-tremula/v2.2/indices/bowtie2/index
 
     kallistoFasta=$reference/Populus-tremula/v2.2/fasta/Potra02_transcripts.fasta
@@ -109,5 +105,5 @@ fi
 for f in $(find $in -name "$pattern"); do
     bash $(realpath ../UPSCb-common/pipeline/runRiboSeqSePreprocessing.sh) -s $start -e $end \
     -b $bowtieIndex -f $kallistoFasta -k $kallistoIndex -M $kallistoFragMean \
-    -S $kallistoFragSd -L $salmonIndex -r $sortMeRnaDb -p $tmp $account $email $f $out
+    -S $kallistoFragSd -L $salmonIndex -r $sortMeRnaDb -p $tmp -q rbx $account $email $f $out
 done

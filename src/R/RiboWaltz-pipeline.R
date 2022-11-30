@@ -1,6 +1,6 @@
 #' ---
 #' title: "Potra V2 RiboWaltz pipeline"
-#' author: "Bernard Wessels & Nicolas Delhomme"
+#' author: "Bernard Wessels & Nicolas Delhomme, Marta Pérez"
 #' date: "`r Sys.Date()`"
 #' output:
 #'  html_document:
@@ -17,7 +17,7 @@
 
 #' # Setup
 #' * Libraries
-suppressPackageStartupMessages({
+suppressPackageStartupMessages ({
   library(here)
   library(GenomicFeatures)
   library(riboWaltz)
@@ -31,27 +31,28 @@ suppressPackageStartupMessages({
 #' # GTF file
 #' gtf_file <- here("reference/Arabidopsis-thaliana/TAIR10/gff/TAIR10_GFF3_genes_transposons.gtf")
 #' # Annotation TxDb file
-#' txdbfile <- makeTxDbFromGFF(gtf_file, format=c("auto"), dataSource=NA, organism=NA, taxonomyId=NA, circ_seqs=DEFAULT_CIRC_SEQS, chrominfo=NULL, miRBaseBuild=NA)
+txdbfile <- makeTxDbFromGFF("/mnt/picea/storage/reference/Picea-abies/v1.1/gff3/Pabies1.1-gene.artificial-100bp-UTRs.sorted.gff3", format=c("gff3"), dataSource=NA, organism=NA, taxonomyId=NA, circ_seqs=NULL, chrominfo=NULL, miRBaseBuild=NA)
 #' library(TxDb.Athaliana.BioMart.plantsmart28)
 #' TxDb.Athaliana.BioMart.plantsmart28
 #'
 #' Other species
-#' Annot <- create_annotation(gtfpath = here("reference/Populus-tremula_X_Populus-tremuloides/v1.0/gtf/Potrx01-genome.gtf.gz"), txdb = NULL)
-#' Annot <- create_annotation(gtfpath =  here("reference/Arabidopsis-thaliana/ARAPORT11/gtf/Araport11_GFF3_genes_transposons.201606.gtf"), txdb = NULL)
+#' Annot <- create_annotation(gtfpath = here("reference/Populus-tremula_X_Populus-tremuloides/v1.0/gtf/Potrx01-genome.gtf.gz"), txdb = NULL),
+#' Annot <- create_annotation(gtfpath =  here("reference/Arabidopsis-thaliana/ARAPORT11/gtf/Araport11_GFF3_genes_transposons.201606.gtf"), txdb = NULL),
+#  Annot <- create_annotation(gtfpath =  here("reference/Picea-abies/v1.1/gtf/Pabies1.1-gene.gtf"), txdb = NULL),
 #' ```
 
-Annot <- create_annotation(gtfpath = here("reference/Populus-tremula/v2.2/gtf/Potra02_genes.gtf.gz"), 
+Annot <- create_annotation(gtfpath = here("/mnt/picea/home/mpalonso/Git/riboSeqPipeline/reference/Picea-abies/v1.0/GBrowse/Pabies1.0/Gene_Prediction_Transcript_assemblies/Eugene-complete-attribute.gtf"), 
                                           txdb = NULL)
 
 
 #' ## Data
 #' * Import and read BAM files
-reads_list <- bamtolist(bamfolder = here("data/Bernard_Results_Samples1-6Okt20/kallisto/Sample1_S1_L001_R1_001_sortmerna_trimmomatic"), 
-                        annotation = Annot)
+reads_list <- bamtolist(bamfolder = here("/mnt/picea/home/mpalonso/ribo-results/kallisto/2SUM_S1_L001_R1_001_sortmerna_trimmomatic/pseudoalignments.bam"), 
+                        annotation = txdbfile)
 
 #' * Selection of read lengths
 filtered_list <- length_filter(data = reads_list, length_filter_mode = "custom",
-                               length_filter_vector = 26:34)
+                               length_filter_vector = 24:34)
 
 #' ```{r period, eval=FALSE, echo=FALSE}
 #' #' * Periodicity threshold mode
@@ -61,7 +62,7 @@ filtered_list <- length_filter(data = reads_list, length_filter_mode = "custom",
 
 #' * P_Site Offset
 psite_offset <- psite(filtered_list, flanking = 6, start = TRUE, extremity = "auto",
-                      plot = TRUE, plot_dir = here("data/Bernard_Results_Samples1-6Okt20/P_Site_images/"), 
+                      plot = TRUE, plot_dir = here("data/Marta_Results/Sample1_Nodepleted_Nov2020/P_Site_images/"), 
                       plot_format = "png", cl = 99)
 reads_psite_list <- psite_info(filtered_list, psite_offset)
 
@@ -78,7 +79,7 @@ codon_coverage_example <- codon_coverage(reads_psite_list, Annot, psite = FALSE)
 
 #' * CDS coverage
 cds_coverage_example <- cds_coverage(reads_psite_list, Annot)
-
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAASCAYAAABit09LAAAAQUlEQVR42mNgIBdkF5b+B2GiFOFVjK4Iq2JcilAUE1IEV/yfSMAwFABJviakCO5rfIoxggabYpzhh6yYYCBTHBMAs1jacRPuSTQAAAAASUVORK5CYII=
 #' ```{r codon cov, eval=FALSE, echo=FALSE}
 #' #' * Codon coverage sorted
 #' codon_coverage_variance <- dcast(codon_coverage_example,  transcript ~ region, function(x){(sum(x>1)/(sum(x<=1)*var(x)))}, value.var = "pseudoalignments")
@@ -88,7 +89,7 @@ cds_coverage_example <- cds_coverage(reads_psite_list, Annot)
 #' # Visualisation
 #' ## Heatmap
 example_ends_heatmap <- rends_heat(filtered_list, Annot, sample = "pseudoalignments", cl = 85,
-                                   utr5l = 25, cdsl = 40, utr3l = 25)
+                                   utr5l = 25, cdsl = 40, utr3l = 25, col = heat.colors(2))
 example_ends_heatmap[["plot"]]
 
 #' ## P-sites per region

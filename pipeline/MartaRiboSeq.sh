@@ -24,24 +24,24 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-arc-23s-id98.fasta,$referenc
 $reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-bac-23s-id98.fasta,$reference/rRNA/sortmerna/v2.1/automata/silva-bac-23s-database-id98:\
 $reference/rRNA/sortmerna/v2.1/rRNA_databases/silva-euk-28s-id98.fasta,$reference/rRNA/sortmerna/v2.1/automata/silva-euk-28s-database-id98
 
-# RUN options, change to match your need (in=$(realpath $data/raw))
+# RUN options, change to match your need
 start=1
-end=8
+end=7
 kallistoFragMean=175
 kallistoFragSd=25
 account=u2021006
 email=marta.perez.alonso@slu.se
-in=/mnt/picea/home/mpalonso/RiboPabies/RIBO/SUM-WIN
-pattern=*.fastq.gz
-out=/mnt/picea/home/mpalonso/Git/data/results/Marta/SUM-WIN
+in=/mnt/picea/home/mpalonso/RiboPabies/Vikash
+pattern="*.fastq.gz"
+out=/mnt/picea/home/mpalonso/RiboPabies/Vikash/results
 
 # functions
 source ${SLURM_SUBMIT_DIR:-$(pwd)}/../UPSCb-common/src/bash/functions.sh
 
 # usage
 export USAGETXT="
-	Usage: $0 <species>
-	Note: this script expects one argument, the species to use, one of:
+        Usage: $0 <species>
+        Note: this script expects one argument, the species to use, one of:
   ${species[@]}
 "
 
@@ -61,8 +61,8 @@ case "$sp" in
     sortMeRnaDb=${sortMeRnaDb}:\
 $reference/rRNA/sortmerna/v2.1/rRNA_databases/Arabidopsis_rRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/Arabidopsis_rRNA:\
 $reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA
-    #$reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA-L10
-    #$reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA-id90
+#$reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA-L10
+#$reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/tRNA-id90
 
     bowtieIndex=$reference/Arabidopsis-thaliana/TAIR10/indices/bowtie2/TAIR10
 
@@ -73,21 +73,17 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/tRNA.fasta,$reference/rRNA/sortmer
   ;;
   pabies)
     sortMeRnaDb=${sortMeRnaDb}:\
-$reference/rRNA/sortmerna/v2.1/rRNA_databases/Picea-Pinus_rRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/Picea-Pinus_rRNA:\
-$reference/rRNA/sortmerna/v2.1/rRNA_databases/plant_tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/plant_tRNA-id90
+$reference/rRNA/sortmerna/v2.1/rRNA_databases/Picea-Pinus_rRNA.fasta,$reference/rRNA/sortmerna/v2.1/automata/Picea-Pinus_rRNA
 
     bowtieIndex=$reference/Picea-abies/v1.0/indices/bowtie2/Pabies01-genome
 
-    kallistoFasta=/mnt/picea/home/mpalonso/Annot/Pabies1.0-all-phase.gff3.CDSandLTR-TE.fa
-    kallistoIndex=$reference/Picea-abies/v1.0/indices/kallisto/kallistoIndex_15-mer/Pabies1.0-all-phase.gff3.CDSandLTR-TE.inx
+    kallistoFasta=/mnt/picea/home/mpalonso/Pabies1.0-all-phase.gff3.CDSandLTR-TE.fa
+    kallistoIndex=$reference/Picea-abies/v1.0/indices/kallisto/Pabies1.0-all.phase.gff3.CDS.fa.inx
 
-    salmonIndex=$reference/Picea-abies/v1.0/indices/salmon/Pabies1.0-all-phase.gff3.CDSandLTR-TE.15-mer
+    salmonIndex=/mnt/picea/storage/reference/Picea-abies/v1.0/indices/salmon/Pabies1.0-all-phase.gff3.CDSandLTR-TE_gentrome_salmon-version-1dot1dot0
 
   ;;
   ptremula)
-    sortMeRnaDb=${sortMeRnaDb}:\
-$reference/rRNA/sortmerna/v2.1/rRNA_databases/plant_tRNA-id90.fasta,$reference/rRNA/sortmerna/v2.1/automata/plant_tRNA-id90
-
     bowtieIndex=$reference/Populus-tremula/v2.2/indices/bowtie2/index
 
     kallistoFasta=$reference/Populus-tremula/v2.2/fasta/Potra02_transcripts.fasta
@@ -95,7 +91,7 @@ $reference/rRNA/sortmerna/v2.1/rRNA_databases/plant_tRNA-id90.fasta,$reference/r
 
   ;;
   \?)
-	  usage;;
+          usage;;
 esac
 
 # further sanity check

@@ -46,4 +46,5 @@ reference
 reference/
 *.fa
 *.fasta
+singularity
 
